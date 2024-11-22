@@ -18,6 +18,10 @@
     "url": "https://github.com/goitacademy/parcel-project-template/issues"
   },
   "dependencies": {
+    "@pnotify/core": "^5.2.0",
+    "@pnotify/mobile": "^5.2.0",
+    "basiclightbox": "^5.0.4",
+    "chart.js": "^4.4.6",
     "modern-normalize": "^1.1.0",
     "nanoid": "^5.0.8"
   },
