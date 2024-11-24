@@ -45,10 +45,19 @@
 //     new Chart(a, config);
 // })
 
-import * as basicLightBox from 'basiclightbox';
-import 'basiclightbox/dist/basicLightbox.min.css';
-const image = '<img src="https://images.pexels.com/photos/16330147/pexels-photo-16330147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="picture" width="500">'
-const show = basicLightBox.create(image);
-document.getElementById('open').addEventListener('click', () => {
-show.show();
-});
+// import * as basicLightBox from 'basiclightbox';
+// import 'basiclightbox/dist/basicLightbox.min.css';
+// const image = '<img src="https://images.pexels.com/photos/16330147/pexels-photo-16330147.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="picture" width="500">'
+// const show = basicLightBox.create(image);
+// document.getElementById('open').addEventListener('click', () => {
+// show.show();
+// });
+
+import '@pnotify/core/dist/BrightTheme.css';
+ defaultModules.set(PNotifyMobile, {});
+ const keys = ['u', 'g', 'h', 'j', 'z', 's', 'i', 'f', 'w', 'n'];
+ let currentKeyIndex;
+ const text = document.querySelector('#key');
+ document.addEventListener('keydown', (event) => {
+
+ });
