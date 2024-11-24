@@ -53,11 +53,43 @@
 // show.show();
 // });
 
+import { success, notice, error, defaultModules } from '@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/BrightTheme.css';
- defaultModules.set(PNotifyMobile, {});
- const keys = ['u', 'g', 'h', 'j', 'z', 's', 'i', 'f', 'w', 'n'];
- let currentKeyIndex;
- const text = document.querySelector('#key');
- document.addEventListener('keydown', (event) => {
+import * as PNotifyMobile from '@pnotify/mobile/dist/PNotifyMobile.js';
+defaultModules.set(PNotifyMobile, {});
 
- });
+const keys = ['u', 'g', 'h', 'j', 'z', 's', 'i', 'f', 'w', 'n'];
+let currentKeyIndex = 0;
+let points = 0; 
+
+const btn = document.querySelector('#update');
+const keyElement = document.querySelector('#key');
+const pointsElement = document.querySelector('#points');
+
+keyElement.textContent = keys[currentKeyIndex];
+pointsElement.textContent = points;
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === keys[currentKeyIndex]) {
+        success({ text: 'Good job!' }); 
+        points++; 
+        currentKeyIndex++; 
+
+        if (currentKeyIndex >= keys.length) {
+            currentKeyIndex = 0;
+            notice({ text: 'You completed the sequence! Starting over' });
+        }
+        keyElement.textContent = keys[currentKeyIndex];
+        pointsElement.textContent = points;
+    } else {
+        error({ text: 'Try again!' }); 
+    }
+});
+btn.addEventListener('click', () => {
+    currentKeyIndex = 0; 
+    points = 0; 
+    keyElement.textContent = keys[currentKeyIndex]; 
+    pointsElement.textContent = points; 
+
+    notice({ text: 'You have started again' }); 
+});
